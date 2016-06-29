@@ -9,6 +9,9 @@ function PromiseMock() {
 Object.keys(Promise).forEach(function(key) {
 	PromiseMock[key] = Promise[key];
 });
+Object.keys(Promise.prototype).forEach(function(key) {
+	PromiseMock.prototype[key] = Promise.prototype[key];
+});
 
 // Queue of waiting callbacks
 PromiseMock.waiting = [];
